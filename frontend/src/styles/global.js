@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-import { colors } from '~/styles/colors';
-
 export default createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 	* {
@@ -19,7 +17,7 @@ export default createGlobalStyle`
 		height: 100%;
 	}
 	body {
-    background: ${colors.primary};
+    background: ${(props) => props.theme.colors.primary};
 		text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased;
 	}

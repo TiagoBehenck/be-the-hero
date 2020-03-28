@@ -7,7 +7,6 @@ import api from '~/services/api';
 
 import { toast } from 'react-toastify';
 
-import { colors } from '~/styles/colors';
 import { Container, Content, Input, SubmitButton, Register } from './styles';
 
 import logoImg from '~/assets/logo.svg';
@@ -47,7 +46,7 @@ export default function Logon() {
           />
           <SubmitButton>Entrar</SubmitButton>
           <Register to="/register">
-            <FiLogIn size={16} color={colors.danger} />
+            <FiLogIn size={16} color="#E02041" />
             Não tenho cadastro
           </Register>
         </form>

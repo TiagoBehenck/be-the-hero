@@ -18,7 +18,6 @@ import {
   CancelButton,
   SubmitButton,
 } from './styles';
-import { colors } from '~/styles/colors';
 import { toast } from 'react-toastify';
 
 export default function NewIncident() {
@@ -54,7 +53,7 @@ export default function NewIncident() {
             isso.
           </p>
           <BackLink to="/profile">
-            <FiArrowLeft size={16} color={colors.danger} />
+            <FiArrowLeft size={16} color="#E02041" />
             Voltar para home
           </BackLink>
         </section>

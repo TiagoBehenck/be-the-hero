@@ -16,7 +16,6 @@ import {
   InputGroup,
   SubmitButton,
 } from './styles';
-import { colors } from '~/styles/colors';
 import { toast } from 'react-toastify';
 
 export default function Register() {
@@ -58,7 +57,7 @@ export default function Register() {
             os casos da sua ONG.
           </p>
           <BackLink to="/">
-            <FiArrowLeft size={16} color={colors.danger} />
+            <FiArrowLeft size={16} color="#E02041" />
             Voltar para o logon
           </BackLink>
         </section>

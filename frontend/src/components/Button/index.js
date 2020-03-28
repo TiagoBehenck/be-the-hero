@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { colors } from '~/styles/colors';
 
 export default styled.button`
   width: 100%;
   height: 60px;
-  color: #fff;
-  background: ${colors.danger};
-  border: 1px solid #dcdce6;
+  color: ${(props) => props.theme.colors.tertiary};
+  background: ${(props) => props.theme.colors.secundary};
+  border: 1px solid ${(props) => props.theme.colors.quaternary};
   border-radius: 8px;
   font-weight: bold;
   margin-top: 16px;

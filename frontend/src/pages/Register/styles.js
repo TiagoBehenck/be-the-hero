@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import InputMask from 'react-input-mask';
 
-import { colors } from '~/styles/colors';
-
 import Link from '~/components/Link';
 import InputText from '~/components/Input';
 import Button from '~/components/Button';
@@ -22,7 +20,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding: 96px;
-  background: ${colors.primary};
+  background: ${(props) => props.theme.colors.primary};
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 
@@ -35,19 +33,22 @@ export const Content = styled.div`
     max-width: 380px;
 
     > h1 {
+      color: ${(props) => props.theme.colors.octave};
       margin: 64px 0 32px;
       font-size: 32px;
     }
 
     > p {
       font-size: 18px;
-      color: #737380;
+      color: ${(props) => props.theme.colors.seventh};
       line-height: 32px;
     }
   }
 `;
 
-export const BackLink = styled(Link)``;
+export const BackLink = styled(Link)`
+  color: ${(props) => props.theme.colors.octave};
+`;
 
 export const Form = styled.form`
   width: 100%;
@@ -64,8 +65,8 @@ export const InputTelephone = styled(InputMask)`
   margin-top: 8px;
   width: 100%;
   height: 60px;
-  color: #333;
-  border: 1px solid #dcdce6;
+  color: ${(props) => props.theme.colors.sixth};
+  border: 1px solid ${(props) => props.theme.colors.quaternary};
   border-radius: 8px;
   padding: 0 24px;
 `;

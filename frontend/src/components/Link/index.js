@@ -6,7 +6,7 @@ export default styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #41414d;
+  color: ${(props) => props.theme.colors.quinary};
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
+import Switch from 'react-switch';
+
 import Link from '~/components/Link';
-import { colors } from '~/styles/colors';
 import Button from '~/components/Button';
 
 export const Container = styled.div`
@@ -11,6 +12,7 @@ export const Container = styled.div`
   margin: 32px auto;
 
   > h1 {
+    color: ${(props) => props.theme.colors.octave};
     margin-top: 80px;
     margin-bottom: 24px;
   }
@@ -18,24 +20,51 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
-  > img {
-    height: 64px;
-  }
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  > span {
-    font-size: 20px;
-    margin-left: 24px;
+    > img {
+      height: 64px;
+    }
+
+    > span {
+      color: ${(props) => props.theme.colors.octave};
+      font-size: 20px;
+      margin-left: 24px;
+    }
+
+    > section {
+      margin-right: 16px;
+      display: flex;
+    }
   }
+`;
+
+export const Toggle = styled(Switch).attrs({
+  checkedIcon: false,
+  uncheckedIcon: false,
+  height: 10,
+  width: 40,
+  handleDiameter: 20,
+  offHandleColor: '#d3d3d3',
+  onHandleColor: '#737380',
+  offColor: '#333',
+  onColor: '#333',
+})`
+  margin: 0 8px;
 `;
 
 export const NewIncidents = styled(Link)`
   width: 100%;
   height: 60px;
-  color: #fff;
-  background: ${colors.danger};
-  border: 1px solid #dcdce6;
+  color: ${(props) => props.theme.colors.tertiary};
+  background: ${(props) => props.theme.colors.secundary};
+  /* border: 1px solid ${(props) => props.theme.colors.quaternary}; */
   border-radius: 8px;
   font-weight: bold;
   margin-top: 16px;
@@ -59,13 +88,14 @@ export const Logout = styled.button`
   height: 60px;
   width: 60px;
   border-radius: 4px;
-  border: 1px solid #dcdce6;
-  background: transparent;
+  border: none;
+  /* border: 1px solid ${(props) => props.theme.colors.quaternary}; */
+  background: ${(props) => props.theme.colors.quaternary};
   margin-left: 16px;
-  transition: border-color 0.2s;
+  transition: filter 0.2s;
 
   :hover {
-    border-color: #999;
+    filter: brightness(90%);
   }
 `;
 
@@ -77,7 +107,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  background: #fff;
+  background: ${(props) => props.theme.colors.tertiary};
   padding: 24px;
   border-radius: 8px;
   position: relative;
@@ -85,11 +115,11 @@ export const Item = styled.li`
   > strong {
     display: block;
     margin-bottom: 16px;
-    color: #41414d;
+    color: ${(props) => props.theme.colors.quinary};
   }
 
   p {
-    color: #737380;
+    color: ${(props) => props.theme.colors.seventh};
     line-height: 21px;
     font-size: 16px;
   }
@@ -123,12 +153,13 @@ export const ButtonPage = styled(Button)`
   padding: 0 16px;
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: ${(props) => props.theme.colors.tertiary};
+  background: ${(props) => props.theme.colors.quaternary};
   border: 0;
   border-radius: 8px;
 
   &:disabled {
     cursor: not-allowed;
-    background: #737380;
+    background: ${(props) => props.theme.colors.quaternary};
   }
 `;

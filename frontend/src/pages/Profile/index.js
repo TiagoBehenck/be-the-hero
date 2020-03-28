@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import React, { useEffect, useState, useContext } from 'react';
+import { FiPower, FiTrash2, FiSun, FiMoon } from 'react-icons/fi';
 
 import api from '~/services/api';
 
 import {
   Container,
   Header,
+  Toggle,
   NewIncidents,
   Logout,
   List,
@@ -14,12 +15,15 @@ import {
   ButtonPage,
 } from './styles';
 
+import { ThemeContext } from 'styled-components';
+
 import logoImg from '~/assets/logo.svg';
-import { colors } from '~/styles/colors';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
-export default function Profile() {
+export default function Profile({ toggleTheme }) {
+  const { title } = useContext(ThemeContext);
+
   const [incidents, setIndcidents] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -65,14 +69,23 @@ export default function Profile() {
   return (
     <Container>
       <Header>
-        <img src={logoImg} alt="Be the Hero" />
-        <span>Bem vinda, {ongName}</span>
-        <NewIncidents to="/incidents/new">Cadastrar novo caso</NewIncidents>
-        <Logout onClick={handleLogout}>
-          <FiPower size={18} color={colors.danger} />
-        </Logout>
+        <div>
+          <img src={logoImg} alt="Be the Hero" />
+          <span>Bem vinda, {ongName}</span>
+        </div>
+        <div>
+          <section>
+            <FiSun size={16} color="#b41934" />
+            <Toggle onChange={toggleTheme} checked={title === 'dark'} />
+            <FiMoon size={16} color="#b41934" />
+          </section>
+          <NewIncidents to="/incidents/new">Cadastrar novo caso</NewIncidents>
+          <Logout onClick={handleLogout}>
+            <FiPower size={18} color="#E02041" />
+          </Logout>
+        </div>
       </Header>
-      <h1>Cassos cadastrados</h1>
+      <h1>Casos cadastrados</h1>
       <List>
         {incidents.map((incident) => (
           <Item key={incident.id}>
