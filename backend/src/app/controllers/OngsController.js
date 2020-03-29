@@ -1,4 +1,4 @@
-import crypo from 'crypto';
+import generateUniqueId from '../../utils/generateUniqueId';
 import connection from '../../database';
 
 class OngsController {
@@ -20,7 +20,7 @@ class OngsController {
   async store(req, res) {
     const { name, email, whatsapp, city, uf } = req.body;
 
-    const id = crypo.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     await connection('ongs').insert({
       id,
@@ -34,12 +34,23 @@ class OngsController {
     return res.status(200).json({ id });
   }
 
-  async update(req, res) {
-    return res.json({ ok: true });
-  }
-
   async delete(req, res) {
-    return res.json({ ok: true });
+    const { id } = req.params;
+    const ong_id = req.headers.authorization;
+
+    const ong = await connection('ongs').where('id', id).first();
+
+    if (id !== ong_id) {
+      return res.status(401).json({ error: 'Operation not permitted.' });
+    }
+
+    if (!ong) {
+      return res.status(401).json({ error: 'Ong not found.' });
+    }
+
+    await connection('ongs').where('id', id).delete();
+
+    return res.status(204).send();
   }
 }
 

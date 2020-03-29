@@ -1,16 +1,14 @@
-import 'dotenv/config';
-
+import { errors } from 'celebrate';
 import express from 'express';
 import cors from 'cors';
 
 import routes from './routes';
 
-// import './database';
-
 class App {
   constructor() {
     this.server = express();
     this.server.use(express.json());
+    this.server.use(errors());
     this.server.use(cors());
     this.middlewares();
     this.routes();
@@ -26,4 +24,4 @@ class App {
   }
 }
 
-export default new App().server;
+module.exports = new App().server;
