@@ -35,6 +35,12 @@ export default function ManagementIncident() {
 
     const data = { title, description, value };
     try {
+      if (id) {
+        await api.put(`/incidents/${id}`, data, {
+          headers: { Authorization: ongId },
+        });
+      }
+
       await api.post('incidents', data, { headers: { Authorization: ongId } });
       toast.success(`Incidente criado com sucesso!`);
       history.push('/profile');
@@ -43,15 +49,16 @@ export default function ManagementIncident() {
     }
   }
 
-  useEffect(() => {
-    async function loadIncident() {
-      const { data } = await api.get(`/incidents/${id}`);
+  async function loadIncident() {
+    const { data } = await api.get(`/incidents/${id}`);
 
-      setTitle(data.title);
-      setDescription(data.description);
-      setValue(data.value);
-      console.log(data.title);
-    }
+    setTitle(data.title);
+    setDescription(data.description);
+    setValue(data.value);
+    console.log(data.title);
+  }
+
+  useEffect(() => {
     loadIncident();
   }, [id]);
 
@@ -95,7 +102,7 @@ export default function ManagementIncident() {
           />
           <ButtonGroup>
             <CancelButton to="/profile">Cancelar</CancelButton>
-            <SubmitButton>Cadastrar</SubmitButton>
+            <SubmitButton>{id ? 'Editar' : 'Cadastrar'}</SubmitButton>
           </ButtonGroup>
         </Form>
       </Content>
