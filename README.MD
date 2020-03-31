@@ -50,6 +50,7 @@ The project was developed in the week omnistack 11.0 <a href="https://rocketseat
 -   [Node.js](https://nodejs.org/)
 -   [Express](https://expressjs.com/)
 -   [Nodemon](https://nodemon.io/)
+-   [Jest](https://jestjs.io/)
 -   [Knex](http://knexjs.org/)
 -   [SQLite](https://www.sqlite.org/index.html)
 -   [ReactJS](https://reactjs.org/)
