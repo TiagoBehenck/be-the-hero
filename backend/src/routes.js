@@ -1,18 +1,18 @@
 import { Router } from 'express';
-import { celebrate, Segments, Joi } from 'celebrate';
 
 import SessionController from './app/controllers/SessionController';
 import OngsController from './app/controllers/OngsController';
 import ProfileController from './app/controllers/ProfileController';
 import IncidentsController from './app/controllers/IncidentsController';
 
+import sessionValidate from './app/validators/Session';
 import ongValidate from './app/validators/Ongs';
 import incidentsValidate from './app/validators/Incidents';
 import profileValidate from './app/validators/Profile';
 
 const routes = new Router();
 
-routes.post('/sessions', SessionController.store);
+routes.post('/sessions', sessionValidate.store, SessionController.store);
 
 routes.post('/ongs', ongValidate.store, OngsController.store);
 routes.get('/ongs', ongValidate.index, OngsController.index);
