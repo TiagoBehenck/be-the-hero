@@ -2,13 +2,14 @@ export default {
   title: 'light',
 
   colors: {
-    primary: '#f0f0f5',
-    secundary: '#E02041',
-    tertiary: '#fff',
-    quaternary: '#dcdce6',
-    quinary: '#41414d',
-    sixth: '#333',
-    seventh: '#737380',
-    octave: '#000',
+    primary: '#E02041',
+    secundary: '#5B2333',
+
+    background: '#f0f0f5',
+    CardBackground: '#fff',
+    title: '#13131a',
+    textStrong: '#41414d',
+    text: '#737380',
+    white: '#fff',
   },
 };

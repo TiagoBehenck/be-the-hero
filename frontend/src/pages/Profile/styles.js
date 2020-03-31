@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin: 32px auto;
 
   > h1 {
-    color: ${(props) => props.theme.colors.octave};
+    color: ${(props) => props.theme.colors.title};
     margin-top: 80px;
     margin-bottom: 24px;
   }
@@ -33,7 +33,7 @@ export const Header = styled.header`
     }
 
     > span {
-      color: ${(props) => props.theme.colors.octave};
+      color: ${(props) => props.theme.colors.title};
       font-size: 20px;
       margin-left: 24px;
     }
@@ -54,7 +54,7 @@ export const Toggle = styled(Switch).attrs({
   offHandleColor: '#d3d3d3',
   onHandleColor: '#737380',
   offColor: '#333',
-  onColor: '#333',
+  onColor: '#ccc',
 })`
   margin: 0 8px;
 `;
@@ -62,8 +62,8 @@ export const Toggle = styled(Switch).attrs({
 export const NewIncidents = styled(Link)`
   width: 100%;
   height: 60px;
-  color: ${(props) => props.theme.colors.tertiary};
-  background: ${(props) => props.theme.colors.secundary};
+  color: ${(props) => props.theme.colors.white};
+  background: ${(props) => props.theme.colors.primary};
   /* border: 1px solid ${(props) => props.theme.colors.quaternary}; */
   border-radius: 8px;
   font-weight: bold;
@@ -90,7 +90,7 @@ export const Logout = styled.button`
   border-radius: 4px;
   border: none;
   /* border: 1px solid ${(props) => props.theme.colors.quaternary}; */
-  background: ${(props) => props.theme.colors.quaternary};
+  background: ${(props) => props.theme.colors.background};
   margin-left: 16px;
   transition: filter 0.2s;
 
@@ -107,7 +107,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  background: ${(props) => props.theme.colors.tertiary};
+  background: ${(props) => props.theme.colors.CardBackground};
   padding: 24px;
   border-radius: 8px;
   position: relative;
@@ -115,11 +115,11 @@ export const Item = styled.li`
   > strong {
     display: block;
     margin-bottom: 16px;
-    color: ${(props) => props.theme.colors.quinary};
+    color: ${(props) => props.theme.colors.textStrong};
   }
 
   p {
-    color: ${(props) => props.theme.colors.seventh};
+    color: ${(props) => props.theme.colors.text};
     line-height: 21px;
     font-size: 16px;
   }
@@ -153,13 +153,13 @@ export const ButtonPage = styled(Button)`
   padding: 0 16px;
   font-size: 14px;
   font-weight: 500;
-  color: ${(props) => props.theme.colors.tertiary};
-  background: ${(props) => props.theme.colors.quaternary};
+  color: ${(props) => props.theme.colors.white};
+  background: ${(props) => props.theme.colors.primary};
   border: 0;
   border-radius: 8px;
 
   &:disabled {
     cursor: not-allowed;
-    background: ${(props) => props.theme.colors.quaternary};
+    background: ${(props) => props.theme.colors.secundary};
   }
 `;

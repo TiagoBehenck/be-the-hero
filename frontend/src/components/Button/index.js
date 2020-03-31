@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export default styled.button`
   width: 100%;
   height: 60px;
-  color: ${(props) => props.theme.colors.tertiary};
-  background: ${(props) => props.theme.colors.secundary};
-  border: 1px solid ${(props) => props.theme.colors.quaternary};
+  color: ${(props) => props.theme.colors.white};
+  background: ${(props) => props.theme.colors.primary};
+  border: 1px solid ${(props) => props.theme.colors.primary};
   border-radius: 8px;
   font-weight: bold;
   margin-top: 16px;

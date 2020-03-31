@@ -17,7 +17,7 @@ export default createGlobalStyle`
 		height: 100%;
 	}
 	body {
-    background: ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.background};
 		text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased;
 	}

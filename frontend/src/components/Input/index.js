@@ -4,7 +4,7 @@ export default styled.input`
   width: 100%;
   height: 60px;
   color: #333;
-  border: 1px solid ${(props) => props.theme.colors.quaternary};
+  border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 8px;
   padding: 0 24px;
 `;

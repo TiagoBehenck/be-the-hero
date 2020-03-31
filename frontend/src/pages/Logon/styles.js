@@ -23,7 +23,7 @@ export const Content = styled.div`
     margin-top: 100px;
 
     > h1 {
-      color: ${(props) => props.theme.colors.octave};
+      color: ${(props) => props.theme.colors.title};
       font-size: 32px;
       margin-bottom: 32px;
     }
@@ -35,5 +35,5 @@ export const Input = styled(InputText)``;
 export const SubmitButton = styled(Button)``;
 
 export const Register = styled(Link)`
-  color: ${(props) => props.theme.colors.octave};
+  color: ${(props) => props.theme.colors.title};
 `;

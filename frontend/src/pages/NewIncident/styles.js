@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding: 96px;
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.background};
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 
@@ -31,21 +31,21 @@ export const Content = styled.div`
     max-width: 380px;
 
     > h1 {
-      color: ${(props) => props.theme.colors.octave};
+      color: ${(props) => props.theme.colors.title};
       margin: 64px 0 32px;
       font-size: 32px;
     }
 
     > p {
       font-size: 18px;
-      color: ${(props) => props.theme.colors.seventh};
+      color: ${(props) => props.theme.colors.text};
       line-height: 32px;
     }
   }
 `;
 
 export const BackLink = styled(Link)`
-  color: ${(props) => props.theme.colors.octave};
+  color: ${(props) => props.theme.colors.textStrong};
 `;
 
 export const Form = styled.form`
@@ -64,8 +64,8 @@ export const Description = styled.textarea`
   width: 100%;
   min-height: 140px;
   resize: vertical;
-  color: ${(props) => props.theme.colors.sixth};
-  border: 1px solid ${(props) => props.theme.colors.quaternary};
+  color: ${(props) => props.theme.colors.text};
+  border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 8px;
   padding: 16px 24px;
   line-height: 24px;
@@ -82,7 +82,7 @@ export const CancelButton = styled(Link)`
   text-align: center;
   line-height: 60px;
   transition: opacity 0.2s;
-  color: ${(props) => props.theme.colors.octave};
+  color: ${(props) => props.theme.colors.white};
 
   :hover {
     opacity: 0.8;
