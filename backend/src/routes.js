@@ -6,68 +6,27 @@ import OngsController from './app/controllers/OngsController';
 import ProfileController from './app/controllers/ProfileController';
 import IncidentsController from './app/controllers/IncidentsController';
 
+import ongValidate from './app/validators/Ongs';
+import incidentsValidate from './app/validators/Incidents';
+import profileValidate from './app/validators/Profile';
+
 const routes = new Router();
 
 routes.post('/sessions', SessionController.store);
 
-routes.post(
-  '/ongs',
-  celebrate({
-    [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().required(),
-      email: Joi.string().required().email(),
-      whatsapp: Joi.string().required().min(10),
-      city: Joi.string().required(),
-      uf: Joi.string().required().length(2),
-    }),
-  }),
-  OngsController.store
-);
+routes.post('/ongs', ongValidate.store, OngsController.store);
+routes.get('/ongs', ongValidate.index, OngsController.index);
+routes.delete('/ongs/:id', ongValidate.destroy, OngsController.delete);
 
-routes.get(
-  '/ongs',
-  celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-      page: Joi.number(),
-    }),
-  }),
-  OngsController.index
-);
-routes.delete('/ongs/:id', OngsController.delete);
-
-routes.post('/incidents', IncidentsController.store);
-routes.get(
-  '/incidents',
-  celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-      page: Joi.number(),
-    }),
-  }),
-  IncidentsController.index
-);
-routes.get('/incidents/:id', IncidentsController.show);
+routes.post('/incidents', incidentsValidate.store, IncidentsController.store);
+routes.get('/incidents', incidentsValidate.index, IncidentsController.index);
 routes.put('/incidents/:id', IncidentsController.update);
 routes.delete(
   '/incidents/:id',
-  celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-      id: Joi.number().required(),
-    }),
-  }),
+  incidentsValidate.destroy,
   IncidentsController.delete
 );
 
-routes.get(
-  '/profile',
-  celebrate({
-    [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required(),
-    }).unknown(),
-    [Segments.QUERY]: Joi.object().keys({
-      page: Joi.number(),
-    }),
-  }),
-  ProfileController.index
-);
+routes.get('/profile', profileValidate.get, ProfileController.index);
 
 export default routes;
