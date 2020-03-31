@@ -39,6 +39,8 @@ export default function ManagementIncident() {
         await api.put(`/incidents/${id}`, data, {
           headers: { Authorization: ongId },
         });
+        toast.success(`Incidente editado com sucesso!`);
+        history.push('/profile');
       }
 
       await api.post('incidents', data, { headers: { Authorization: ongId } });
@@ -60,6 +62,7 @@ export default function ManagementIncident() {
 
   useEffect(() => {
     loadIncident();
+    // eslint-disable-next-line
   }, [id]);
 
   return (
