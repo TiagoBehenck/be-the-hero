@@ -35,7 +35,7 @@
 
 ## :pencil: About the project
 
-Be the hero is an application that which aims to integrate NGOs with people who are willing to help the next.
+Be the hero is an application that which aims to integrate ONGs with people who are willing to help the next.
 
 The project was developed in the week omnistack 11.0 <a href="https://rocketseat.com.br">Rocketseat</a> 
 
