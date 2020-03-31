@@ -43,6 +43,7 @@ The project was developed in the week omnistack 11.0 <a href="https://rocketseat
 
   _The application contains a new feature, **dark mode**_ <br />
   _Possibility to edit an incident_ <br />
+  _Separation of validation logic in routes_ <br />
   _Root import_
 
 ## :hammer: Technology
