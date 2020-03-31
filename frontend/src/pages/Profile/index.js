@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { FiPower, FiTrash2, FiSun, FiMoon } from 'react-icons/fi';
+import { FiPower, FiSun, FiMoon } from 'react-icons/fi';
+import { FaSadCry } from 'react-icons/fa';
 
 import api from '~/services/api';
+
+import { confirmAlert } from 'react-confirm-alert';
 
 import {
   Container,
@@ -10,12 +13,13 @@ import {
   NewIncidents,
   Logout,
   List,
-  Item,
   ActionPage,
   ButtonPage,
+  Empty,
 } from './styles';
 
 import { ThemeContext } from 'styled-components';
+import IncidentCard from '~/components/IncidentCard';
 
 import logoImg from '~/assets/logo.svg';
 import { toast } from 'react-toastify';
@@ -24,7 +28,7 @@ import { useHistory } from 'react-router-dom';
 export default function Profile({ toggleTheme }) {
   const { title } = useContext(ThemeContext);
 
-  const [incidents, setIndcidents] = useState([]);
+  const [incidents, setIncidents] = useState([]);
   const [page, setPage] = useState(1);
 
   const ongId = localStorage.getItem('ongId');
@@ -43,22 +47,40 @@ export default function Profile({ toggleTheme }) {
         },
       })
       .then((response) => {
-        setIndcidents(response.data);
+        setIncidents(response.data);
       });
   }, [ongId, page]);
 
   async function handleDeleteIncident(id) {
-    try {
-      await api.delete(`/incidents/${id}`, {
-        headers: {
-          Authorization: ongId,
+    confirmAlert({
+      title: 'Confirme a exclusão',
+      message: `Deseja remover o caso ${id} ?`,
+      buttons: [
+        {
+          label: 'Sim',
+          onClick: async () => {
+            try {
+              await api.delete(`incidents/${id}`, {
+                headers: {
+                  Authorization: ongId,
+                },
+              });
+              toast.success(`Incidente ${id} deletado com sucesso!`);
+              setIncidents(incidents.filter((incident) => incident.id !== id));
+            } catch (err) {
+              toast.error(
+                (err.response && err.response.data.error) ||
+                  'Erro de comunicação com o servidor'
+              );
+            }
+          },
         },
-      });
-      setIndcidents(incidents.filter((incidents) => incidents.id !== id));
-      toast.success(`Incidente ${id} deletado com sucesso!`);
-    } catch (error) {
-      toast.error('Erro ao deletar o caso, tente novamente.');
-    }
+        {
+          label: 'Não',
+          onClick: () => '',
+        },
+      ],
+    });
   }
 
   function handleLogout() {
@@ -86,32 +108,22 @@ export default function Profile({ toggleTheme }) {
         </div>
       </Header>
       <h1>Casos cadastrados</h1>
-      <List>
-        {incidents.map((incident) => (
-          <Item key={incident.id}>
-            <strong>CASO:</strong>
-            <p>{incident.title}</p>
-
-            <strong>DESCRIÇÃO:</strong>
-            <p>{incident.description}</p>
-
-            <strong>VALOR:</strong>
-            <p>
-              {Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              }).format(incident.value)}
-            </p>
-
-            <button
-              onClick={() => handleDeleteIncident(incident.id)}
-              type="button"
-            >
-              <FiTrash2 size={20} color="#A8A8B3" />
-            </button>
-          </Item>
-        ))}
-      </List>
+      {incidents.length > 0 ? (
+        <List>
+          {incidents.map((incident) => (
+            <IncidentCard
+              key={String(incident.id)}
+              incident={incident}
+              handleDeleteIncident={handleDeleteIncident}
+            />
+          ))}
+        </List>
+      ) : (
+        <Empty>
+          <h1>Você ainda não cadastrou nenhum caso.</h1>
+          <FaSadCry color="#737380" size={50} />
+        </Empty>
+      )}
       <ActionPage>
         <ButtonPage disabled={page === 1} onClick={() => setPage(page - 1)}>
           Voltar

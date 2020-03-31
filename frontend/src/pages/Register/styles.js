@@ -65,7 +65,7 @@ export const InputTelephone = styled(InputMask)`
   margin-top: 8px;
   width: 100%;
   height: 60px;
-  color: ${(props) => props.theme.colors.text};
+  color: #333;
   border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 8px;
   padding: 0 24px;

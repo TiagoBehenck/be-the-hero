@@ -106,38 +106,16 @@ export const List = styled.ul`
   list-style: none;
 `;
 
-export const Item = styled.li`
-  background: ${(props) => props.theme.colors.CardBackground};
-  padding: 24px;
-  border-radius: 8px;
-  position: relative;
-
-  > strong {
-    display: block;
-    margin-bottom: 16px;
-    color: ${(props) => props.theme.colors.textStrong};
-  }
-
-  p {
-    color: ${(props) => props.theme.colors.text};
-    line-height: 21px;
-    font-size: 16px;
-  }
-
-  p + strong {
-    margin-top: 32px;
-  }
-
-  > button {
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    border: 0;
-    background: transparent;
-
-    :hover {
-      opacity: 0.8;
-    }
+export const Empty = styled.div`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  h1 {
+    color: ${(props) => props.theme.colors.title};
+    margin-bottom: 25px;
   }
 `;
 

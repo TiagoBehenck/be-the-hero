@@ -64,7 +64,7 @@ export const Description = styled.textarea`
   width: 100%;
   min-height: 140px;
   resize: vertical;
-  color: ${(props) => props.theme.colors.text};
+  color: #333;
   border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 8px;
   padding: 16px 24px;

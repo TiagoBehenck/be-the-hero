@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -20,7 +20,8 @@ import {
 } from './styles';
 import { toast } from 'react-toastify';
 
-export default function NewIncident() {
+export default function ManagementIncident() {
+  const { id } = useParams();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
@@ -42,6 +43,18 @@ export default function NewIncident() {
     }
   }
 
+  useEffect(() => {
+    async function loadIncident() {
+      const { data } = await api.get(`/incidents/${id}`);
+
+      setTitle(data.title);
+      setDescription(data.description);
+      setValue(data.value);
+      console.log(data.title);
+    }
+    loadIncident();
+  }, [id]);
+
   return (
     <Container>
       <Content>
@@ -62,21 +75,21 @@ export default function NewIncident() {
           <Input
             type="text"
             placeholder="Título do caso"
-            valeu={title}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
           <Description
             type="text"
             placeholder="Descrição"
-            valeu={description}
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
           <Input
             type="number"
             placeholder="Valor em reais"
-            valeu={value}
+            value={value}
             onChange={(e) => setValue(e.target.value)}
             required
           />

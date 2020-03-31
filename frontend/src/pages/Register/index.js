@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
+import { confirmAlert } from 'react-confirm-alert';
+
 import api from '~/services/api';
 
 import logoImg from '~/assets/logo.svg';
@@ -36,10 +38,11 @@ export default function Register() {
     try {
       const response = await api.post('ongs', data);
 
-      toast.success(
-        `Cadastro criado com sucesso. Seu ID de acesso: ${response.data.id}`
-      );
-      alert(response.data.id);
+      confirmAlert({
+        title: 'Cadastro criado',
+        message: `Seu ID de acesso: ${response.data.id}`,
+      });
+      toast.success(`Cadastro criado com sucesso!`);
       history.push('/');
     } catch (error) {
       toast.error('Infelizmente não foi possível criar seu cadastro :(');
