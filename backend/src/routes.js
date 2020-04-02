@@ -20,6 +20,7 @@ routes.delete('/ongs/:id', ongValidate.destroy, OngsController.delete);
 
 routes.post('/incidents', incidentsValidate.store, IncidentsController.store);
 routes.get('/incidents', incidentsValidate.index, IncidentsController.index);
+routes.get('/incidents/:id', IncidentsController.show);
 routes.put('/incidents/:id', IncidentsController.update);
 routes.delete(
   '/incidents/:id',

@@ -48,9 +48,9 @@ export const ContactBox = styled.View`
 
 export const HeroTitle = styled.Text`
   font-weight: bold;
-  font-size: 20;
+  font-size: 20px;
   color: #13131a;
-  line-height: 30;
+  line-height: 30px;
 `;
 
 export const HeroDescription = styled.Text`

@@ -41,11 +41,13 @@ export default function ManagementIncident() {
         });
         toast.success(`Incidente editado com sucesso!`);
         history.push('/profile');
+      } else {
+        await api.post('incidents', data, {
+          headers: { Authorization: ongId },
+        });
+        toast.success(`Incidente criado com sucesso!`);
+        history.push('/profile');
       }
-
-      await api.post('incidents', data, { headers: { Authorization: ongId } });
-      toast.success(`Incidente criado com sucesso!`);
-      history.push('/profile');
     } catch (error) {
       toast.error(`Erro ao cadastrar o caso, tente novamente.`);
     }
@@ -57,7 +59,6 @@ export default function ManagementIncident() {
     setTitle(data.title);
     setDescription(data.description);
     setValue(data.value);
-    console.log(data.title);
   }
 
   useEffect(() => {

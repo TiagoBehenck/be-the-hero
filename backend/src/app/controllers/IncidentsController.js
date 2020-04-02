@@ -24,6 +24,21 @@ class IncidentsController {
     return res.status(200).json(incidents);
   }
 
+  async show(req, res) {
+    const { id } = req.params;
+
+    const incident = await connection('incidents')
+      .where('id', id)
+      .select('*')
+      .first();
+
+    if (!incident) {
+      return res.status(401).json({ error: 'Incident not found.' });
+    }
+
+    return res.json(incident);
+  }
+
   async store(req, res) {
     const { title, description, value } = req.body;
     const ong_id = req.headers.authorization;
