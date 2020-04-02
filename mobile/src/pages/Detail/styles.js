@@ -4,8 +4,8 @@ import Constants from 'expo-constants';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 0px 24px;
-  padding-top: ${Constants.statusBarHeight + 20}px;
+  padding: ${Constants.statusBarHeight + 20}px 24px 0;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Image = styled.Image``;
@@ -21,14 +21,14 @@ export const BackButton = styled.TouchableOpacity``;
 export const Incident = styled.View`
   padding: 24px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.CardBackground};
   margin-bottom: 16px;
   margin-top: 48px;
 `;
 
 export const Property = styled.Text`
   font-size: 14px;
-  color: #41414d;
+  color: ${({ theme }) => theme.colors.title};
   font-weight: bold;
   margin-top: ${(props) => (props.marginTop ? 0 : 24)}px;
 `;
@@ -36,26 +36,26 @@ export const Property = styled.Text`
 export const Value = styled.Text`
   margin-top: 8px;
   font-size: 15px;
-  color: #737380;
+  color: ${({ theme }) => theme.colors.textStrong};
 `;
 
 export const ContactBox = styled.View`
   padding: 24px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.CardBackground};
   margin-bottom: 16px;
 `;
 
 export const HeroTitle = styled.Text`
   font-weight: bold;
   font-size: 20px;
-  color: #13131a;
+  color: ${({ theme }) => theme.colors.title};
   line-height: 30px;
 `;
 
 export const HeroDescription = styled.Text`
   font-size: 15px;
-  color: #737380;
+  color: ${({ theme }) => theme.colors.text};
   margin-top: 16px;
 `;
 
