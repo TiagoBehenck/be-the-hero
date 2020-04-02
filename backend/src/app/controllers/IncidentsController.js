@@ -21,7 +21,7 @@ class IncidentsController {
 
     res.header('X-Total-Count', count['count(*)']);
 
-    return res.status(200).json({ incidents });
+    return res.status(200).json(incidents);
   }
 
   async store(req, res) {

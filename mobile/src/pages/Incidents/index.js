@@ -36,16 +36,20 @@ export default function Incidents() {
   }
 
   async function loadIncidents() {
-    if (loading) return;
+    if (loading) {
+      return;
+    }
 
-    if (total > 0 && incidents.length === total) return;
+    if (total > 0 && incidents.length === total) {
+      return;
+    }
 
     setLoading(true);
 
     const response = await api.get('/incidents', { params: { page } });
 
-    setIncidents([...incidents, ...response.data]);
     setTotal(response.headers['x-total-count']);
+    setIncidents([...incidents, ...response.data]);
     setPage(page + 1);
     setLoading(false);
   }
@@ -68,28 +72,28 @@ export default function Incidents() {
 
       <IncidentList
         data={incidents}
-        keyExtractor={(incident) => String(incident.id)}
+        keyExtractor={(item) => String(item.id)}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.1}
-        renderItem={({ item: incident }) => (
+        renderItem={({ item }) => (
           <Incident>
             <Property>ONG:</Property>
-            <Value>{incident.name}</Value>
+            <Value>{item.name}</Value>
 
             <Property>CASO:</Property>
-            <Value>{incident.description}</Value>
+            <Value>{item.description}</Value>
 
             <Property>VALOR:</Property>
             <Value>
               {Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(incident.value)}
+              }).format(item.value)}
             </Value>
 
             <DetailsButton
               onPress={() => {
-                navigateToDetail(Incident);
+                navigateToDetail(item);
               }}
             >
               <DetailsButtonText>Ver mais detalhes</DetailsButtonText>
