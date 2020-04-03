@@ -112,15 +112,9 @@ _Root import_
    yarn install
 
    // If you're going to emulate with android - run this command
-   react-native run-android
+   yarn android
    // If you're going to emulate with ios - run this command
-   react-native run-ios
-
-  // 3 - Run the application (Be sure to have the API running locally)
-  react-native start
-
-  // If usually use have some error, try it
-  yarn start --reset-cache
+   yarn ios
 
 ```
 
