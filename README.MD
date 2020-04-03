@@ -61,6 +61,7 @@ _Root import_
 - [React Toastify](https://github.com/fkhadra/react-toastify)
 - [Styled-components](https://www.styled-components.com/)
 - [React Native](https://facebook.github.io/react-native/)
+- [EXPO](https://expo.io/)
 - [React Navigation](https://reactnavigation.org/)
 - [Axios](https://github.com/axios/axios)
 - [React-icons](https://react-icons.netlify.com/)
