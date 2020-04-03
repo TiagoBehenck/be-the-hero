@@ -39,6 +39,10 @@ Be the hero is an application that which aims to integrate ONGs with people who 
 
 The project was developed in the week omnistack 11.0 <a href="https://rocketseat.com.br">Rocketseat</a> 
 
+<p align="center">
+  <img alt="GIF" src=".github/example.gif" />
+</p>
+
 ## :rocket: Upgrades
 
   _The application contains a new feature, **dark mode**_ <br />
@@ -81,10 +85,7 @@ The project was developed in the week omnistack 11.0 <a href="https://rocketseat
   // 3 - Install the dependencies
   yarn install
 
-  // 4 - Run the migration 
-  npx knex migrate:latest
-
-  // 5 - Run the application
+  // 4 - Run the application
   yarn dev
 
 ```
