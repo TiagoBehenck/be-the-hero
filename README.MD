@@ -1,11 +1,3 @@
-<style>
-
-img {
-   border-radius: 8px
-}
-
-</style>
-
 <h1 align="center">
   <img alt="Be the Hero" title="Be the Hero" src=".github/logo.svg" />
 </h1>
