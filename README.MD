@@ -1,3 +1,11 @@
+<style>
+
+img {
+   border-radius: 8px
+}
+
+</style>
+
 <h1 align="center">
   <img alt="Be the Hero" title="Be the Hero" src=".github/logo.svg" />
 </h1>
@@ -32,12 +40,11 @@
   <a href="#octocat-how-to-contribute">How to contribute</a>
 </p>
 
-
 ## :pencil: About the project
 
 Be the hero is an application that which aims to integrate ONGs with people who are willing to help the next.
 
-The project was developed in the week omnistack 11.0 <a href="https://rocketseat.com.br">Rocketseat</a> 
+The project was developed in the week omnistack 11.0 <a href="https://rocketseat.com.br">Rocketseat</a>
 
 <p align="center">
   <img alt="GIF" src=".github/example.gif" />
@@ -45,31 +52,30 @@ The project was developed in the week omnistack 11.0 <a href="https://rocketseat
 
 ## :rocket: Upgrades
 
-  _The application contains a new feature, **dark mode**_ <br />
-  _Possibility to edit an incident_ <br />
-  _Separation of validation logic in routes_ <br />
-  _Root import_
+_The application contains a new feature, **dark mode**_ <br />
+_Possibility to edit an incident_ <br />
+_Separation of validation logic in routes_ <br />
+_Root import_
 
 ## :hammer: Technology
 
--   [Node.js](https://nodejs.org/)
--   [Express](https://expressjs.com/)
--   [Nodemon](https://nodemon.io/)
--   [Jest](https://jestjs.io/)
--   [Knex](http://knexjs.org/)
--   [SQLite](https://www.sqlite.org/index.html)
--   [ReactJS](https://reactjs.org/)
--   [React Toastify](https://github.com/fkhadra/react-toastify)
--   [Styled-components](https://www.styled-components.com/)
--   [React Native](https://facebook.github.io/react-native/)
--   [React Navigation](https://reactnavigation.org/)
--   [Axios](https://github.com/axios/axios)
--   [React-icons](https://react-icons.netlify.com/)
--   [ESLint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
--   [EditorConfig](https://editorconfig.org/)
--   [VS Code](https://code.visualstudio.com/)
-
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Nodemon](https://nodemon.io/)
+- [Jest](https://jestjs.io/)
+- [Knex](http://knexjs.org/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [ReactJS](https://reactjs.org/)
+- [React Toastify](https://github.com/fkhadra/react-toastify)
+- [Styled-components](https://www.styled-components.com/)
+- [React Native](https://facebook.github.io/react-native/)
+- [React Navigation](https://reactnavigation.org/)
+- [Axios](https://github.com/axios/axios)
+- [React-icons](https://react-icons.netlify.com/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
+- [VS Code](https://code.visualstudio.com/)
 
 ## :wrench: Installation
 
